@@ -1,0 +1,17 @@
+---
+title: Critical Minerals Supply Chain Overview
+date: 2026-01-22
+source: Cognis Digital Analytical Notes
+tags: minerals, supply-chain, economics
+---
+
+Critical minerals underpin modern manufacturing, from batteries to magnets.
+Concentrated processing capacity creates supply-chain fragility: a single
+disruption can ripple across downstream industries for months.
+
+This report reviews diversification strategies. Recycling recovers material
+from end-of-life products and reduces dependence on primary extraction.
+Stockpiling smooths short-term shocks but ties up capital. Long-term supply
+security depends on transparent reporting and diversified sourcing.
+
+Nothing here constitutes investment advice; the overview is analytical.

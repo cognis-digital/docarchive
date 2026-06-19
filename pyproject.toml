@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cognis-docarchive"
+version = "0.1.0"
+description = "Structured archive indexer + full-text search for public-records / document collections (local, TF-IDF)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "COCL 1.0" }
+authors = [{ name = "Cognis Digital" }]
+maintainers = [{ name = "Cognis Digital" }]
+keywords = ["full-text-search", "tf-idf", "archive", "indexer", "osint", "documents"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Environment :: Console",
+    "Topic :: Text Processing :: Indexing",
+]
+dependencies = []
+
+[project.scripts]
+docarchive = "docarchive.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
