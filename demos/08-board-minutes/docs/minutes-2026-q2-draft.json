@@ -1,0 +1,7 @@
+{
+  "title": "Security Steering Committee Minutes - Q2 2026 (Draft)",
+  "date": "2026-06-19",
+  "source": "Security Governance (synthetic example)",
+  "tags": ["governance", "risk", "minutes"],
+  "text": "Draft minutes for the second-quarter session. The committee reviewed progress on the zero-trust segmentation plan, with the first network zone now enforced. The expanded logging retention is live and already supported one investigation. Discussion covered vendor-access reviews and a proposed tabletop exercise for the ransomware response plan in the next quarter. Actions were assigned with owners. Synthetic governance record for indexing demonstrations."
+}

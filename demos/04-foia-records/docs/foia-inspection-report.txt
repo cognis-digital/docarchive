@@ -1,0 +1,15 @@
+---
+title: Public Records Release - Facility Inspection Report Summary
+date: 2026-02-08
+source: County Records Office (synthetic example)
+tags: public-records, inspection, infrastructure
+---
+
+This synthetic inspection-report summary describes a routine inspection of a
+public water-treatment facility. The inspector recorded that backup power
+systems were tested and operational, that physical access controls to the
+control room were in place, and that maintenance logs were current.
+
+A minor finding recommended updating the facility's incident-contact roster.
+The summary contains no sensitive operational detail and no personal data. It is
+a fabricated example for indexing demonstrations.

@@ -1,0 +1,7 @@
+{
+  "title": "Threat Advisory: Compromised Build Dependency Risk",
+  "date": "2026-03-18",
+  "source": "Cognis Digital Threat Intelligence",
+  "tags": ["cti", "supply-chain", "appsec"],
+  "text": "This advisory describes the risk pattern in which a software build pipeline pulls a transitive dependency whose maintainer account or publishing infrastructure has been compromised, allowing a malicious version to enter downstream builds. Defensive measures include pinning dependency versions with lockfiles, verifying package integrity hashes, restricting build runners from arbitrary network egress, and reviewing new or unexpected dependency additions during code review. The advisory is analytical and supports secure software supply-chain practice."
+}

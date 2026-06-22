@@ -1,0 +1,7 @@
+{
+  "title": "Threat Advisory: Commodity Loader Delivered via Malicious Documents",
+  "date": "2026-03-02",
+  "source": "Cognis Digital Threat Intelligence",
+  "tags": ["cti", "malware", "phishing"],
+  "text": "This advisory summarizes observed activity in which a commodity loader is delivered through macro-enabled office documents attached to invoice-themed phishing emails. On execution the loader retrieves a second-stage payload over HTTPS and establishes persistence via a scheduled task. Defenders should disable macros from the internet, monitor for unexpected scheduled-task creation, and inspect outbound connections from office applications. Indicators in this advisory are described in behavioral terms only; consult your authoritative intelligence feed for current technical indicators before deploying detections."
+}

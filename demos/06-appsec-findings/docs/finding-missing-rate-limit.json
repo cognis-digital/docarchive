@@ -1,0 +1,7 @@
+{
+  "title": "AppSec Finding - Missing Rate Limit on Password Reset",
+  "date": "2026-03-11",
+  "source": "Cognis Digital Secure Code Review",
+  "tags": ["appsec", "rate-limiting", "identity"],
+  "text": "Review of the password-reset flow found no rate limiting on the reset-request endpoint, allowing an attacker to enumerate accounts and flood users with reset emails. Remediation: add per-account and per-source rate limits, return a uniform response whether or not the account exists to prevent enumeration, and alert on abnormal request volume. Severity assessed as medium."
+}

@@ -72,6 +72,25 @@ $ docarchive search examples.index.json "osint methods" --since 2026-02-01 --jso
 ]
 ```
 
+### Output formats
+
+`search` supports `--format {text,json,csv,ndjson}` (default `text`). `--json`
+is kept as a shortcut for `--format json`.
+
+```console
+# Spreadsheet / ticket-ready: one row per result, header included
+$ docarchive search examples.index.json "minerals" --format csv > hits.csv
+
+# Log/event pipelines: one compact JSON object per line (jq, Splunk, Elastic)
+$ docarchive search examples.index.json "grid" --format ndjson | jq .title
+```
+
+The CLI is also runnable without installing, as a module:
+
+```console
+$ PYTHONPATH=src python -m docarchive index examples --out examples.index.json
+```
+
 ### 3. Stats
 
 ```console
@@ -130,7 +149,8 @@ Dates are stored as given; ISO-8601 (`YYYY-MM-DD`) sorts and filters correctly.
   hyphenated-token support.
 - Ranked search with score, metadata, and highlighted snippets centered on the
   first match.
-- `--tag`, `--since`, `--limit`, and `--json` query options.
+- `--tag`, `--since`, `--limit` query options and `--format {text,json,csv,ndjson}`
+  output (CSV for spreadsheets/trackers, NDJSON for log/event pipelines).
 - `stats` summary: document count, unique terms, token total, date range, tags.
 - Standard library only. Real pytest suite covering tokenizing, indexing,
   ranking order, filters, snippets, and the CLI.
@@ -160,6 +180,34 @@ avoids division by zero, stays non-negative, and rewards rarer, more
 discriminative terms. Only documents containing at least one query term are
 returned. Scores are comparable within a single index. Ties break by document
 id for deterministic ordering.
+
+---
+
+## Demos
+
+The [`demos/`](demos/) directory has eight self-contained, real-use-case
+walkthroughs - each a `docs/` folder in docarchive's real input formats plus a
+`SCENARIO.md` (data provenance, expected output, exact commands, how to act):
+
+| # | Demo | Highlights |
+|---|------|-----------|
+| 01 | SOC incident-response runbooks | ranked search, `--tag` filter |
+| 02 | Threat-intelligence advisories | `--format csv` export |
+| 03 | Coordinated vulnerability disclosures | search by vuln class |
+| 04 | Public-records (FOIA-style) collection | `stats` overview |
+| 05 | OSINT analyst notebook | `--format ndjson` streaming |
+| 06 | Secure code-review findings | CSV export for trackers |
+| 07 | Firmware analysis lab notes | weakness-class search |
+| 08 | Security governance minutes | `--since` date scoping |
+
+All demo content is defensive/analytical and uses only synthetic or
+behaviorally-described material - no fabricated CVE IDs, hashes, or fingerprints.
+
+```bash
+cd demos/01-ir-runbooks
+docarchive index docs --out runbooks.index.json
+docarchive search runbooks.index.json "ransomware containment backups"
+```
 
 ---
 

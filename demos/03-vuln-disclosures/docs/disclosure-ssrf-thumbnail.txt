@@ -1,0 +1,19 @@
+---
+title: Coordinated Disclosure - SSRF in Thumbnail Fetcher
+date: 2026-03-09
+source: Cognis Digital AppSec Disclosures
+tags: appsec, ssrf, network
+---
+
+A server-side request forgery issue was reported in a thumbnail-generation
+service. The service fetched an image from a user-supplied URL without
+restricting the destination, allowing requests to internal addresses and the
+cloud metadata endpoint.
+
+Impact: an attacker could induce the server to make requests to internal
+services that are not reachable from the public internet.
+
+Remediation: validate the destination against an allowlist of public image
+hosts, deny requests to private and link-local address ranges, and disable
+automatic redirect following. The fix shipped with a unit test covering the
+private-range denial. Documented under coordinated, authorized disclosure.

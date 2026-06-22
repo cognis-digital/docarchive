@@ -1,0 +1,7 @@
+{
+  "title": "AppSec Finding - Verbose Error Messages Leak Stack Traces",
+  "date": "2026-01-28",
+  "source": "Cognis Digital Secure Code Review",
+  "tags": ["appsec", "information-disclosure", "configuration"],
+  "text": "The application returned full stack traces and framework version details in HTTP 500 responses in the production configuration. This information discloses internal structure and dependency versions useful to an attacker. Remediation: return a generic error page in production, log full detail server-side only, and confirm debug mode is disabled in the deployment configuration. Severity assessed as low."
+}

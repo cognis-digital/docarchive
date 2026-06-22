@@ -1,0 +1,17 @@
+---
+title: Public Records Release - Municipal IT Budget Summary
+date: 2025-12-05
+source: City Records Office (synthetic example)
+tags: public-records, budget, government
+---
+
+This synthetic public-records summary describes a municipal information
+technology budget allocation for the fiscal year. Funds were apportioned across
+network modernization, endpoint replacement, cybersecurity tooling, and staff
+training. The largest single line item funded the replacement of end-of-life
+networking equipment across municipal facilities.
+
+The summary notes that cybersecurity tooling spending increased relative to the
+prior year, with emphasis on identity management and logging. No personally
+identifiable information is included. This document is a fabricated example for
+indexing demonstrations and does not reflect any real jurisdiction.

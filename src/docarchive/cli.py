@@ -8,6 +8,7 @@ import sys
 from typing import Any
 
 from . import __version__
+from .formats import to_csv, to_ndjson
 from .index import build_index, load_index, save_index
 from .search import search as run_search
 from .stats import compute_stats
@@ -52,8 +53,15 @@ def _cmd_search(args: argparse.Namespace) -> int:
         since=args.since,
         limit=args.limit,
     )
-    if args.json:
+    # --json is retained as a back-compat alias for --format json.
+    fmt = "json" if args.json else args.format
+    if fmt == "json":
         print(json.dumps(results, ensure_ascii=False, indent=2))
+    elif fmt == "csv":
+        # csv module already emits its own line terminators; avoid a double newline.
+        sys.stdout.write(to_csv(results))
+    elif fmt == "ndjson":
+        sys.stdout.write(to_ndjson(results))
     else:
         _print_results(results)
     return 0
@@ -104,7 +112,17 @@ def build_parser() -> argparse.ArgumentParser:
     p_search.add_argument("--tag", default=None, help="Filter to documents carrying this tag.")
     p_search.add_argument("--since", default=None, help="Keep documents with date >= this ISO date (YYYY-MM-DD).")
     p_search.add_argument("--limit", type=int, default=10, help="Maximum results (default: 10).")
-    p_search.add_argument("--json", action="store_true", help="Emit results as JSON.")
+    p_search.add_argument(
+        "--format",
+        choices=["text", "json", "csv", "ndjson"],
+        default="text",
+        help="Output format: text (default), json, csv, or ndjson.",
+    )
+    p_search.add_argument(
+        "--json",
+        action="store_true",
+        help="Shortcut for --format json (back-compat).",
+    )
     p_search.set_defaults(func=_cmd_search)
 
     p_stats = sub.add_parser("stats", help="Show statistics about an index.")
