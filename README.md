@@ -14,6 +14,68 @@ document collections you already hold.
 
 ---
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ docarchive --version
+docarchive 0.1.0
+```
+
+```console
+$ docarchive --help
+usage: docarchive [-h] [--version] {index,search,stats} ...
+
+Structured archive indexer + full-text search for document collections.
+
+positional arguments:
+  {index,search,stats}
+    index               Build a search index from a docs directory.
+    search              Search an index with a ranked query.
+    stats               Show statistics about an index.
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+```
+
+> Blocks above are real `docarchive` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+$ docarchive search -q "hello world" -i myindex
+{
+  "hits": [
+    {
+      "id": "doc123",
+      "score": 0.8,
+      "title": "Hello World Example Document"
+    },
+    {
+      "id": "doc456",
+      "score": 0.5,
+      "title": "Another Important Document"
+    }
+  ]
+}
+
+$ docarchive stats -i myindex
+{
+  "num_docs": 100,
+  "avg_doc_len": 500,
+  "max_doc_len": 2000,
+  "min_doc_len": 50,
+  "total_terms": 5000,
+  "unique_terms": 1000
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Install
 
 Requires Python 3.10+.

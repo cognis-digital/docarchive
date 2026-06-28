@@ -1,0 +1,3 @@
+$ docarchive --version
+
+docarchive 0.1.0

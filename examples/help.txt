@@ -1,0 +1,15 @@
+$ docarchive --help
+
+usage: docarchive [-h] [--version] {index,search,stats} ...
+
+Structured archive indexer + full-text search for document collections.
+
+positional arguments:
+  {index,search,stats}
+    index               Build a search index from a docs directory.
+    search              Search an index with a ranked query.
+    stats               Show statistics about an index.
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
